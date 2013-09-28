@@ -9,13 +9,19 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:current_user_id])
   end
   def logged_in?
-    @current_user != nil
+
+    current_user != nil
   end
   def authorized?
-    if params[:user]
-      redirect_to :root unless params[:user] == current_user.id
+    if params[:user_id] != nil
+      unless params[:user_id] == current_user.id.to_s
+        redirect_to :root 
+      end
     else
-      redirect_to :root unless logged_in?
+      unless logged_in?
+        redirect_to :root 
+      end
     end
   end
+
 end

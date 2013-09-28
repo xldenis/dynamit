@@ -1,6 +1,6 @@
 Dynamite::Application.routes.draw do
   get '/auth/:provider/callback',to: 'sessions#create'
-  root :to => "feeds#index"
+  root :to => "sources#index"
   
 
     namespace :api,:provides => :json do
