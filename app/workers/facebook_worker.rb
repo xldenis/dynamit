@@ -8,7 +8,7 @@ class FacebookWorker
     posts = graph.get_connections("me","feed")
     posts.each do |post|
       source.posts.create(post_id:post['id'],
-                          type:post['type'],
+                          descriptor:post['type'],
                           message: {text: post['message'],link:post['link']},
                           created_time:post['created_time'])
     end
