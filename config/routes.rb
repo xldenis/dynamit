@@ -7,7 +7,8 @@ Dynamite::Application.routes.draw do
       resources :users do
         resources :sources,shallow: true do
           resources :posts
-        end
+        end   
       end
+      resources :posts
     end
 end

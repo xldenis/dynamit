@@ -1,5 +1,5 @@
 App.controller('feed', function($scope, $http, $templateCache) {
-	$scope.sources = ['e4c1d9637573657449030000', ];
+	$scope.sources = ['45c39c65757365a379020000', ];
 	$scope.posts = [];
 	
 	
@@ -14,7 +14,7 @@ App.controller('feed', function($scope, $http, $templateCache) {
 	};
 	
 	$scope.method = 'GET';
-	$scope.url = 'http://localhost:3000/api/sources/e4c1d9637573657449030000.json';
+	$scope.url = 'http://localhost:3000/api/sources/45c39c65757365a379020000.json';
 	
 	//pull sources for the specified user
 	$scope.getUsersSources = function(user_id) {
@@ -30,12 +30,12 @@ App.controller('feed', function($scope, $http, $templateCache) {
 	
 	//pull posts from a source
 	$scope.getPostsFromSource = function(source_id) {
-		var sourceURL = 'http://localhost:3000/api/sources/'+source_id+'.json';
+		var sourceURL = 'http://localhost:3000/api/posts.json';
 		$http.get(sourceURL).
 		success(function(data, status) {
 			
-			$scope.posts.concat(data.source.posts);
-			angular.forEach(data.source.posts, function(post) {
+			$scope.posts.concat(data);
+			angular.forEach(data, function(post) {
 				post.post.created_time = new Date(post.post.created_time).toRelativeTime();
 				$scope.posts.push(post);
 			});

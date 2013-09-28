@@ -1,7 +1,8 @@
 class Post
 
   include Mongoid::Document
-  embedded_in :source
+  belongs_to :source
+  belongs_to :user
   
   field :created_time, type:DateTime
 
