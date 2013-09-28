@@ -10,7 +10,7 @@ small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, l
 	padding: 0;
 	border: 0;
 	font: inherit;
-	font-family:  'Helvetica Light', Helvetica Neue, Helvetica, sans-serif;
+	font-family:  Helvetica Neue, Helvetica, sans-serif;
 	line-height: 1.3;
 	
 	-webkit-box-sizing: border-box;
@@ -136,8 +136,8 @@ i {
 .button {
 	display: inline-block;
 	font-size: 1.5rem;
-	border: 3px solid #FFFFFF;
-	color: #FFFFFF;
+	border: 3px solid #FF4D4D;
+	color: #FF4D4D;
 	border-radius: .2rem;
 	padding: .3rem 1rem;
 	font-family: Helvetica Neue;
@@ -150,7 +150,7 @@ i {
 	transition: 		all .1s;
 }
 .button:hover {
-	background: #3399FF;
+	background: #FF4D4D;
 	color: #FFFFFF;
 	
 	-webkit-transition: all .1s;
@@ -350,6 +350,7 @@ footer {
 
 /* project specific css */
 #headerBar {
+	padding: .3rem .5rem;
 }
 .sidebar {
 
@@ -365,7 +366,6 @@ footer {
 }
 .mainContent {
 	width: calc(100%-15rem);
-	background: #EEEEEE;
 	
 	display: block;
 	padding: 1rem;
@@ -374,9 +374,26 @@ footer {
 	height: 20%;
 }
 .feed {
-	background: #FFFFFF;
 	width: 50%;
 	margin: 0 auto;
+	padding: 1rem;
+}
+.posts .post {
+	padding: .5rem;
+	background: #FFFFFF;
+	border-radius: .2rem;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.posts .post + .post {
+	margin-top: .5rem;
+}
+.postSource {
+	color: #666666;
+	font-size: 1.3rem;
+	display: block;
+}
+.postContent {
+	display: inline-block;
 	padding: 1rem;
 }
 /* end project specific css */

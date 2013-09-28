@@ -6,19 +6,21 @@
 	<br>
 	
 	<input type="text" ng-model="url" size="80"/>
-	<button ng-click="fetch()">fetch</button><br>
+	<button class="button" ng-click="fetch()">fetch</button><br>
     
     <br>
     
-    <span>Number of Posts: {{numPosts()}}</span>
+    <!-- <span>Number of Posts: {{numPosts()}}</span> -->
     
-	<ul>
-		<li ng-repeat="post in posts | filter:query | filter:{visible:true}">
-			<small>{{post.source}}</small>
-			<p>{{post.content}}</p>
+	<ul class="posts">
+		<li class="post" ng-repeat="post in posts | filter:query | filter:{visible:true}">
+			<span class="postSource">{{post.source}}</span>
+			<span class="postContent">{{post.content}}</span>
 		</li>
 	</ul>
 
-	<pre>http status code: {{status}}</pre>
+	<!--
+<pre>http status code: {{status}}</pre>
 	<pre>http response data: {{data}}</pre>
+-->
 </div>
