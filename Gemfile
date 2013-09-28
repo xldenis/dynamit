@@ -30,6 +30,7 @@ gem 'mongoid', github: "mongoid/mongoid"
 gem 'rabl'
 gem 'koala'
 gem 'bson_ext'
+gem 'omniauth-facebook'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
