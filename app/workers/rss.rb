@@ -7,7 +7,7 @@ class RSSWorker
     posts = Feedzirra::Feed.fetch_and_parse(source.url)
 
     posts.entries.each do |post|
-      source.posts.create(post_id:post.etag,
+      source.posts.create(post_id:posts.etag,
                           type="RSS",
                           message['text']:post.content,
                           link:post.url,
