@@ -8,7 +8,7 @@ class RSSWorker
 
     posts.entries.each do |post|
       source.posts.create(post_id:posts.etag,
-                          type:"RSS",
+                          descriptor:post.title,
                           message: {text:post.content},
                           link:post.url,
                           created_time:post.published)
