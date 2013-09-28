@@ -1,8 +1,9 @@
 class Post
+
   include Mongoid::Document
   embedded_in :source
   
-  field :create_time, type: DateTime
+  field :created_time, type:DateTime
 
   # Holds the content type for a Facebook post, or the title of a RSS post
   field :descriptor
@@ -19,8 +20,8 @@ class Post
 
   field :author
 
-  validates_presence_of :post_id
-  validates_presence_of :descriptor
-  validates_presence_of :created_time
-  validates_uniqueness_of :item_id
+  # validates_presence_of :post_id
+  # validates_presence_of :descriptor
+  # validates_presence_of :created_time
+  # validates_uniqueness_of :post_id
 end
