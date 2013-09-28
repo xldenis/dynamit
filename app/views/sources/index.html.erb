@@ -11,15 +11,15 @@
     <!-- <span>Number of Posts: {{numPosts()}}</span> -->
     
 	<ul class="posts">
-		<li class="post" ng-repeat="post in posts | filter:query | filter:{visible:true}">
-			<span class="postSource">{{post.source}}</span>
-			<span class="timeStamp">A few seconds ago</span>
-			<span class="postContent">{{post.content}}</span>
+		<li class="post" ng-repeat="post in posts | filter:query">
+			<span class="postSource">{{post.post.descriptor}}</span>
+			<span class="timeStamp">{{post.post.created_time}}</span>
+			<span class="postContent">{{post.post.post_id}}</span>
 		</li>
 	</ul>
 
-	<!--
-<pre>http status code: {{status}}</pre>
+<!--
+	<pre>http status code: {{status}}</pre>
 	<pre>http response data: {{data}}</pre>
 -->
 </div>
