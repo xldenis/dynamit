@@ -21,7 +21,7 @@ If you are on Ubuntu, you can follow this guide: http://stackoverflow.com/questi
 
 clone the repo in the folder of your choice whith this command :
 
-	git clone https://github.com/xldenis/dynamite/
+	git clone https://github.com/xldenis/dynamit/
 
 Because Dynamit is using MongoDB to store the posts, you will have to install it with.
 Also, If you don't have any JavaScript runtime you are better off installing Node.js along :
