@@ -10,7 +10,7 @@ class FacebookWorker
     posts.each do |post|
       source.posts.create(post_id:post['id'],
                           descriptor:post['type'],
-                          message: {text: post['message'],link:post['link']},
+                          message: {text: post['message']||post['story'],link:post['link']},
                           created_time:post['created_time'])
     end
   end
