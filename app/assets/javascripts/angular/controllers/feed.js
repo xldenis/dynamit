@@ -1,8 +1,6 @@
 App.controller('feed', function($scope, $http, $templateCache) {
-	$scope.sources = ['e4c1d9637573657449030000', ];
 	$scope.posts = [];
 	
-	//count
 	$scope.numPosts = function() {
 		var num = 0;
 		angular.forEach($scope.posts, function(posts) {
@@ -13,26 +11,23 @@ App.controller('feed', function($scope, $http, $templateCache) {
 		return num;
 	};
 	
-	//get posts
+	//pull sources for the specified user
 	$scope.getPosts = function() {
-		var userSourcesURL = 'http://localhost:3000/api/posts.json';
-		$http.get(userSourcesURL).
-		success(function(data, status) {
-			$scope.posts.concat(data);
+		var postURL = 'http://localhost:3000/api/posts.json';
+		$http.get(postURL).
+		success(function(data) {
+			$scope.posts = data;
 		}).
-		error(function(data, status) {
+		error(function(data) {
 			alert('there was an error getting your sources');
 		});
 	};
 	
 	$scope.fetch = function() {
-		$scope.getPosts();
+		$scope.getPosts();		
 	};
 	
 	//handle event communication between controllers
-	$scope.$on('searching', function() {
-		alert("the user is searching for something");
-	});
 	
 	$scope.$on('handleBroadcast', function(event, args) {
 		angular.forEach($scope.posts, function(post) {
