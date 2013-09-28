@@ -1,3 +1,4 @@
 Dynamite::Application.routes.draw do
-  get '/callback/:provider',to: 'sessions#create'
+  get '/auth/:provider/callback',to: 'sessions#create'
+  root :to => "feeds#index"
 end

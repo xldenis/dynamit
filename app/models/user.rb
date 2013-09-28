@@ -5,7 +5,7 @@ class User
 
   def self.find_or_create_by_hash(auth_hash)
     @source = Source.where(:provider => auth_hash["provider"], :identifier => auth_hash["identifier"])
-    if @source
+    if @source.first
         #assert only one source
         @user = @source.first.user
     else
@@ -26,4 +26,5 @@ class User
             #couldnt create user, error
         end
     end
+end
 end
