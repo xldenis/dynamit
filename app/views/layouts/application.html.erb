@@ -10,11 +10,22 @@
 
 
 <body>
+	<header>
+		<div class="row silver" id="headerBar">
+			<h1>Dynamite</h1>
+		</div>
+	</header>
 	
-	<%= yield %>
+	<div id="main">
+		<section class="sidebar">
+		
+		</section><section class="mainContent">
+			<%= yield %>
+		</section>
+	</div> <!-- end #body -->
 	
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular-resource.js"></script>
 	<%= javascript_include_tag "application" %>
 </body>
 
