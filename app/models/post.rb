@@ -20,8 +20,8 @@ class Post
 
   field :author
 
-  validates_presence_of :post_id
-  validates_presence_of :descriptor
-  validates_presence_of :created_time
-  validates_uniqueness_of :post_id
+  # validates_presence_of :post_id
+  # validates_presence_of :descriptor
+  # validates_presence_of :created_time
+  # validates_uniqueness_of :post_id
 end
