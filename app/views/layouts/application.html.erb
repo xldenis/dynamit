@@ -3,7 +3,8 @@
 
 <head>
 	<title>Dynamite</title>
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+	<%= stylesheet_link_tag "font-awesome", media: "all", "data-turbolinks-track" => true %>
 	
 	<%= csrf_meta_tags %>
 </head>
@@ -13,8 +14,9 @@
 	<header ng-controller="header">
 		<div class="row red" id="headerBar">
 			<h1 class="siteTitle">Dynamite</h1>
-			<button class="button button_inverse" id="loadData" ng-click="loadData()">Load Data</button>
-			<a class="button button_inverse" href="auth/facebook">Click here to sign In</a>
+			<!-- <button class="button button_inverse" id="loadData" ng-click="loadData()">Load Data</button> -->
+			<a class="signInIcon" href="auth/facebook"><i class="icon-facebook-sign"></i></a>
+			<a class="signInIcon" href="auth/twitter"><i class="icon-twitter-sign"></i></a>
 		</div>
 		<div class="row white" id="secondaryBar">
 			
@@ -22,7 +24,7 @@
 		</div>
 	</header>
 	
-	<div id="main">
+	<div id="main" when-scrolled="console.log('hi')">
 		<section class="sidebar">
 		
 		</section><section class="mainContent silver">

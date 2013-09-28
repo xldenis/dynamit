@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require app
+//= require track
 //= require_tree ./angular
 //= require_tree ./vendor

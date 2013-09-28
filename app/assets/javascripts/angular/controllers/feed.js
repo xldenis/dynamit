@@ -1,7 +1,10 @@
-App.controller('feed', function($scope, $http, $templateCache) {
-
+App.controller('feed', function($scope, $http) {
 	$scope.posts = [];
 	
+	$scope.init = function () {
+		$scope.getPosts();
+	};
+
 	$scope.numPosts = function() {
 		var num = 0;
 		angular.forEach($scope.posts, function(posts) {
@@ -17,6 +20,11 @@ App.controller('feed', function($scope, $http, $templateCache) {
 		var postURL = 'http://localhost:3000/api/posts.json';
 		$http.get(postURL).
 		success(function(data) {
+			//format time stamps nicely (ex. a few seconds ago)
+			angular.forEach(data, function(post) {
+				post.post.created_time = new Date(post.post.created_time).toRelativeTime();
+			});
+			
 			$scope.posts = data;
 		}).
 		error(function(data) {
@@ -44,4 +52,5 @@ App.controller('feed', function($scope, $http, $templateCache) {
 	$scope.$on('broadcastLoadData', function(event, args) {
 		$scope.fetch();
 	});
+	
 });

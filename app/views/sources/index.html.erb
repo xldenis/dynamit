@@ -1,4 +1,4 @@
-<div class="feed" ng-controller="feed">
+<div class="feed" ng-controller="feed" data-ng-init="init()">
 	<!-- Search: <input ng-model="query"> -->
 	
 	<!-- <a href="" ng-click="removeSource('Facebook')">remove facebook posts</a> -->
@@ -14,7 +14,7 @@
 		<li class="post" ng-repeat="post in posts | filter:query">
 			<span class="postSource">{{post.post.descriptor}}</span>
 			<span class="timeStamp">{{post.post.created_time}}</span>
-			<span class="postContent">{{post.post.post_id}}</span>
+			<span class="postContent">{{post.post.message.text}}</span>
 		</li>
 	</ul>
 

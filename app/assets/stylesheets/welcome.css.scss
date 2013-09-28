@@ -284,8 +284,7 @@ p {
 /* end text */
 
 /* main body*/
-#body {
-	
+#main {
 }
 /* header */
 header {
@@ -388,6 +387,12 @@ footer {
 	float: right;
 	font-size: 1.3rem;
 	border-width: 2px;
+	display: inline-block;
+}
+.signInIcon {
+	font-size: 2rem;
+	color: #FFFFFF;
+	padding: 0 .5rem;
 	display: inline-block;
 }
 #secondaryBar {
