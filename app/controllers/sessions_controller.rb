@@ -5,14 +5,9 @@ class SessionsController < ApplicationController
 			session[:current_user_id] = @user.id
 		else
 			@user = current_user
-			@user.sources.create(
-				provider: auth_hash["provider"],
-				identifier: auth_hash["identifier"],
-				token: auth_hash["credentials"]["token"],
-				secret: auth_hash["credentials"]["secret"],
-				expire_time: auth_hash["credentials"]["expires_at"]
-				)
+			@user.sources.find_or_create(auth_hash)
 		end
+		
 		current_user.sources.each do |source|
 			case source.provider
 			when  "facebook"
