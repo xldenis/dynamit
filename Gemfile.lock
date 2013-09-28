@@ -41,6 +41,9 @@ GEM
     bson (2.0.0.rc2)
     bson_ext (1.5.1)
     builder (3.1.4)
+    byebug (2.2.2)
+      columnize (~> 0.3.6)
+      debugger-linecache (~> 1.2.0)
     celluloid (0.15.1)
       timers (~> 1.1.0)
     certified (0.1.1)
@@ -51,8 +54,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    columnize (0.3.6)
     connection_pool (1.1.0)
     curb (0.8.4)
+    debugger-linecache (1.2.0)
     erubis (2.7.0)
     execjs (2.0.2)
     faraday (0.8.8)
@@ -205,6 +210,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext
+  byebug
   certified
   coffee-rails (~> 4.0.0)
   feedzirra
