@@ -1,7 +1,7 @@
 class Source
   include Mongoid::Document
   belongs_to :user
-  embeds_many :posts
+  has_many :posts
 
   field :provider
   field :token

@@ -2,6 +2,7 @@ class User
   include Mongoid::Document
 
   has_many :sources
+  has_many :posts
   def self.find_or_create_by_hash(auth_hash)
     @source = Source.where(:provider => auth_hash["provider"], :identifier => auth_hash["identifier"])
     if @source.first

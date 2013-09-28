@@ -7,10 +7,12 @@ class FacebookWorker
     graph = Koala::Facebook::API.new(source.token)
     posts = graph.get_connections("me","feed")
     posts.each do |post|
-      source.posts.create(post_id:post['id'],
+      p = source.posts.new(post_id:post['id'],
                           descriptor:post['type'],
                           message: {text: post['message']||post['story'],link:post['link']},
-                          created_time:post['created_time'])
+                          created_time:post['created_time'],
+                          user: source.user)
+      p.save
     end
   end
 end

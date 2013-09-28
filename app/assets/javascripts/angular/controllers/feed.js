@@ -1,4 +1,5 @@
 App.controller('feed', function($scope, $http, $templateCache) {
+
 	$scope.posts = [];
 	
 	$scope.numPosts = function() {
