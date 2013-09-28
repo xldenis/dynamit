@@ -4,6 +4,7 @@ class Api::SourcesController < ApplicationController
       @sources = current_user.sources
   end
   def show 
-    @post = current_user.sources.find(params[:id])
+    @source = current_user.sources.find(params[:id])
+    @posts = @source.posts.limit(25)
   end
 end
