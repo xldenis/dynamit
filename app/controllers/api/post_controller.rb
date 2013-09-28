@@ -12,3 +12,4 @@ end
 def track
   Post.update_tracker(params[:posts])
 end
+end
