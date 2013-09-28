@@ -1,3 +1,390 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* css reset */
+/* css reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-family:  'Helvetica Light', Helvetica Neue, Helvetica, sans-serif;
+	line-height: 1.3;
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	
+	-webkit-font-smoothing: antialiased;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html {
+	font-size: 20px;
+}
+body {
+	
+	line-height: 1;
+	font-weight: 200;
+	overflow-x: hidden;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: #000000;	
+}
+button {
+	background: inherit;
+	cursor: pointer;
+}
+input, textarea {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+input[type="search"] {
+	padding: 0.35rem;
+	-webkit-appearance: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+	display: none;
+}
+input, label, textarea {
+	display: block;
+}
+b {
+	font-weight: 700;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+i {
+	font-style: italic;
+}
+/* end css reset */
+
+/* fonts */
+@font-face {
+	font-family: '';
+	src: url('');
+	font-weight: normal;
+}
+/* end fonts */
+
+/* grid system */
+.row {
+	width: 100%;
+	display: inline-block;
+}
+.half {
+	width: 50%;
+	display: inline-block;
+	vertical-align: middle;
+}
+.third {
+	width: 33.33333%;
+	display: inline-block;
+	vertical-align: middle;
+}
+.fourth {
+	width: 25%;
+	
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+}
+/* end grid system */
+
+/* general styling */
+.padded {
+	padding: 3rem 2rem;
+}
+.center {
+	text-align: center;
+}
+.right {
+	text-align: right;
+}
+.vertical {
+	vertical-align: middle;
+}
+.notVertical {
+	vertical-align: top;
+}
+.link {
+	color: #3399FF;
+}
+/* end general styling */
+
+/* buttons */
+.button {
+	display: inline-block;
+	font-size: 1.5rem;
+	border: 3px solid #FFFFFF;
+	color: #FFFFFF;
+	border-radius: .2rem;
+	padding: .3rem 1rem;
+	font-family: Helvetica Neue;
+	font-weight: 400;
+	margin: 1rem 0;
+	cursor: pointer;
+	
+	-webkit-transition: all .1s;
+	-moz-transition: 	all .1s;
+	transition: 		all .1s;
+}
+.button:hover {
+	background: #3399FF;
+	color: #FFFFFF;
+	
+	-webkit-transition: all .1s;
+	-moz-transition: 	all .1s;
+	transition: 		all .1s;
+}
+
+/* end buttons */
+
+/* colors */
+.white {
+	background: #FFFFFF;
+	color: #000000;
+}
+.silver {
+	background: #F0F0F0;
+	color: #000000;
+}
+.lightGrey, .silver {
+	background: #E9EEF5;
+	color: #000000;
+}
+.grey {
+	background: #888888;
+	color: #FFFFFF;
+}
+.charcoal, .darkGrey {
+	background: #242629;
+	color: #FFFFFF;	
+}
+.black, .dark {
+	background: #000000;
+	color: #FFFFFF;
+}
+.red {
+	background: #FF4D4D;
+	color: #FFFFFF;
+}
+.darkRed {
+	background: #7A0000;
+	color: #FFFFFF;
+}
+.orange {
+	background: #FFA600;
+	color: #FFFFFF;
+}
+.yellow {
+	background: #FFD900;
+	color: #000000;
+}
+.green {
+	background: #00D10E;
+	color: #FFFFFF;
+}
+.teal {
+	background: #00DB9A;
+	color: #FFFFFF;
+}
+.darkTeal {
+	background: #009669;
+	color: #FFFFFF;
+}
+.skyBlue {
+	background: #47CBFF;
+	color: #FFFFFF;
+}
+.lightBlue {
+	background: #00AAED;
+	color: #FFFFFF;
+}
+.blue {
+	background: #0090C9;
+	color: #FFFFFF;
+}
+.darkBlue {
+	background: #005070;
+	color: #FFFFFF;
+}
+.lightPink {
+	background: #FF528C;
+	color: #FFFFFF;
+}
+.pink {
+	background: #FF0055;
+	color: #FFFFFF;
+}
+.lightPurple {
+	background: #E552FF;
+	color: #FFFFFF;
+}
+.purple {
+	background: #C700EB;
+	color: #FFFFFF;
+}
+.darkPurple {
+	background: #4F0099;
+	color: #FFFFFF;
+}
+/* end colors */
+
+/* text */
+h1 {
+	font-size: 3rem;
+}
+h2 {
+	font-size: 2.5rem;
+}
+h3 {
+	font-size: 2rem;
+}
+h4 {
+	font-size: 1.5rem;
+}
+h5 {
+	font-size: 1.3rem;
+}
+h6 {
+	font-size: 1rem;
+}
+p {
+	
+}
+/* end text */
+
+/* main body*/
+#body {
+	
+}
+/* header */
+header {
+	
+}
+/* end header */
+
+/* footer */
+footer {
+}
+/* end footer */
+
+/* flexbox */
+.flexboxContainer {
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	background: blue;
+	
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	
+	-webkit-box-pack: 			center;
+	-moz-box-pack: 				center;
+	-ms-flex-pack: 				center;
+	-webkit-justify-content: 	center;
+	justify-content: 			center;
+	
+	flex-direction: row;
+	
+	-webkit-box-align: 		stretch;
+	-moz-box-align: 		stretch;
+	-ms-flex-align: 		stretch;
+	-webkit-align-items: 	stretch;
+	align-items: 			stretch;
+}
+.flexbox {
+	text-align: center;
+	
+	-webkit-box-flex: 	1;
+	-moz-box-flex:		1;
+	flex: 				1;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: 	all .3s;
+	transition: 		all .3s;
+}
+.flexbox:hover {
+	-webkit-box-flex: 	2;
+	-moz-box-flex:		2;
+	flex: 				2;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: 	all .3s;
+	transition: 		all .3s;
+}
+#first {
+   /* Set order lower than 0 so it moves before other section elements,
+      except old spec, where it must be positive.
+ */
+   -webkit-box-ordinal-group: 	1;
+   -moz-box-ordinal-group: 		1;
+   -ms-flex-order: 				1;
+   order: 						1;
+}
+/* end flexbox */
+
+/* project specific css */
+#headerBar {
+}
+.sidebar {
+
+	top: 3.9rem;
+	
+	width: 15rem;
+	height: 100%;
+	background: #F5F5F5;
+	box-shadow: 0 1px 3px rgba(0,0,0,.1);
+	
+	display: inline-block;
+	display: none;
+}
+.mainContent {
+	width: calc(100%-15rem);
+	background: #EEEEEE;
+	
+	display: block;
+	padding: 1rem;
+}
+.fourth {
+	height: 20%;
+}
+.feed {
+	background: #FFFFFF;
+	width: 50%;
+	margin: 0 auto;
+	padding: 1rem;
+}
+/* end project specific css */
+
+/* media queries */
+@media only screen and (max-width: 1000px) {
+	.flexboxContainer {
+		flex-direction: column;
+	}
+}
+/* end media queries */

@@ -1,20 +1,24 @@
-<h1>Dynamite</h1>
-
-<div>
-	<label>Name:</label>
-	<input type="text" ng-model="yourName" placeholder="Enter a name here">
-	<hr>
-	<h1>Hello {{yourName}}!</h1>
-</div>
-
-<div ng-controller="feed">
-	<span>Number of Posts: {{numPosts()}}</span>
-	<a href="" ng-click="removeSource('Facebook')">remove facebook posts</a>
-	<button ng-click="loadData()">Load Data</button>
+<div class="feed" ng-controller="feed">
+	Search: <input ng-model="query">
+	
+	<!-- <a href="" ng-click="removeSource('Facebook')">remove facebook posts</a> -->
+	<br>
+	<br>
+	
+	<input type="text" ng-model="url" size="80"/>
+	<button ng-click="fetch()">fetch</button><br>
+    
+    <br>
+    
+    <span>Number of Posts: {{numPosts()}}</span>
+    
 	<ul>
-		<li ng-repeat="post in posts">
+		<li ng-repeat="post in posts | filter:query | filter:{visible:true}">
 			<small>{{post.source}}</small>
 			<p>{{post.content}}</p>
 		</li>
 	</ul>
+
+	<pre>http status code: {{status}}</pre>
+	<pre>http response data: {{data}}</pre>
 </div>
