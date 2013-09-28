@@ -36,6 +36,9 @@ gem 'certified'
 # Use feedzirra to pull feeds in workers
 gem 'feedzirra'
 
+gem 'sinatra', require:false
+gem 'slim'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

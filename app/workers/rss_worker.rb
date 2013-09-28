@@ -2,14 +2,14 @@ class RSSWorker
   include Sidekiq::Worker
 
   def perform(source_id)
-    source = source.find(source_id)
+    source = Source.find(source_id)
 
     posts = Feedzirra::Feed.fetch_and_parse(source.url)
 
     posts.entries.each do |post|
       source.posts.create(post_id:posts.etag,
-                          type="RSS",
-                          message['text']:post.content,
+                          type:"RSS",
+                          message: {text:post.content},
                           link:post.url,
                           created_time:post.published)
 
