@@ -13,7 +13,7 @@ class User
                 provider: auth_hash["provider"],
                 identifier: auth_hash["identifier"],
                 token: auth_hash["credentials"]["token"],
-                secret: auth_hash["credentials"]["secret"]
+                secret: auth_hash["credentials"]["secret"],
                 expire_time: auth_hash["credentials"]["expires_at"]
                 )
             if @source.save
