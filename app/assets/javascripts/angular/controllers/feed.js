@@ -1,9 +1,8 @@
 App.controller('feed', function($scope, $http, $templateCache) {
-	$scope.posts = [
-		{source:'Facebook', content:"Carlos liked your page", visible:true},
-		{source:"Twitter", content:"Xavier tweeted about turkeys", visible:true}
-	];
- 	
+	$scope.sources = ['e4c1d9637573657449030000', ];
+	$scope.posts = [];
+	
+	
 	$scope.numPosts = function() {
 		var num = 0;
 		angular.forEach($scope.posts, function(posts) {
@@ -14,50 +13,72 @@ App.controller('feed', function($scope, $http, $templateCache) {
 		return num;
 	};
 	
-	$scope.removeSource = function(source) {
-		angular.forEach($scope.posts, function(post) {
-			if(post.source === source) {
-				post.visible = false;
-				post.content = 'this should be removed';
-			}
+	$scope.method = 'GET';
+	$scope.url = 'http://localhost:3000/api/sources/e4c1d9637573657449030000.json';
+	
+	//pull sources for the specified user
+	$scope.getUsersSources = function(user_id) {
+		var userSourcesURL = 'http://localhost:3000/api/users/'+user_id+'/sources/';
+		$http.get(userSourcesURL).
+		success(function(data, status) {
+			$scope.sources = data;
+		}).
+		error(function(data, status) {
+			alert('there was an error getting your sources');
 		});
 	};
 	
-	$scope.method = 'GET';
-	$scope.url = 'http://angularjs.org/greet.php?callback=JSON_CALLBACK&name=Super%20Hero';
-	$scope.url = 'http://localhost:3000/welcome.json';
+	//pull posts from a source
+	$scope.getPostsFromSource = function(source_id) {
+		var sourceURL = 'http://localhost:3000/api/sources/'+source_id+'.json';
+		$http.get(sourceURL).
+		success(function(data, status) {
+			
+			$scope.posts.concat(data.source.posts);
+			angular.forEach(data.source.posts, function(post) {
+				post.post.created_time = new Date(post.post.created_time).toRelativeTime();
+				$scope.posts.push(post);
+			});
+		}).
+		error(function(data, status) {
+			alert('there was an error getting posts for the source: '+source_id);
+		});
+	};
 	
 	$scope.fetch = function() {
-		$scope.code = null;
+		
+		//pull all posts from every source
+		angular.forEach($scope.sources, function(source) {
+			$scope.getPostsFromSource(source);
+		});
+		
+		
+		
+		/*
+$scope.code = null;
 		$scope.response = null;
 		
 		$http({method: $scope.method, url: $scope.url}).
 		success(function(data, status) {
 			$scope.status = status;
 			$scope.data = data;
-			$scope.posts = data;
+			$scope.posts = data.source.posts;
+			$scope.feeds.push(data.source);
+			angular.forEach($scope.posts, function(post) {
+				post.post.created_time = new Date(post.post.created_time).toRelativeTime();
+			});
 		}).
 		error(function(data, status,headers,config) {
 			$scope.data = data || "Request failed";
 			$scope.status = status;
 		});
-	};
-	
-	$scope.updateModel = function(method, url) {
-		$scope.method = method;
-		$scope.url = url;
+*/
 	};
 	
 	
-	$scope.removeSource = function(source) {
-		angular.forEach($scope.posts, function(post) {
-			if(post.source === source) {
-				post.visible = false;
-				post.content = 'this should be removed';
-			}
-		});
-	};
 	
+	
+	//handle event communication between controllers
 	$scope.$on('searching', function() {
 		alert("the user is searching for something");
 	});

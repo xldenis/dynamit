@@ -14,8 +14,10 @@
 		<div class="row red" id="headerBar">
 			<h1 class="siteTitle">Dynamite</h1>
 			<button class="button button_inverse" id="loadData" ng-click="loadData()">Load Data</button>
+			<a class="button button_inverse" href="auth/facebook">Click here to sign In</a>
 		</div>
 		<div class="row white" id="secondaryBar">
+			
 			<input class="searchTopic" type="text" ng-change="change()" ng-model="searchTerm" placeholder="search for a topic"/>
 		</div>
 	</header>
@@ -31,6 +33,13 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular-resource.js"></script>
 	<%= javascript_include_tag "application" %>
+	
+	<script>
+		$(window).ready(function(){
+			//$("header").sticky({ topSpacing: 0 });
+		});
+	</script>
+	
 </body>
 
 </html>

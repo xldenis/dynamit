@@ -28,12 +28,14 @@ footer, header, hgroup, menu, nav, section {
 }
 html {
 	font-size: 20px;
+	word-break: break-word;
 }
 body {
 	
 	line-height: 1;
 	font-weight: 200;
-	overflow-x: hidden;
+	background: #E9EEF5;
+	
 }
 ol, ul {
 	list-style: none;
@@ -175,10 +177,6 @@ i {
 	background: #FFFFFF;
 	color: #000000;
 }
-.silver {
-	background: #F0F0F0;
-	color: #000000;
-}
 .lightGrey, .silver {
 	background: #E9EEF5;
 	color: #000000;
@@ -291,7 +289,8 @@ p {
 }
 /* header */
 header {
-	
+	width: 100%;
+	z-index: 2;
 }
 /* end header */
 
@@ -382,16 +381,19 @@ footer {
 	-moz-box-flex:		1;
 	flex: 				1;
 }
-#loadData {
+#loadData, header .button {
 	margin: .2rem;
-	padding: 0 .5rem;
+	padding: .2rem .5rem;
+	
 	float: right;
 	font-size: 1.3rem;
 	border-width: 2px;
+	display: inline-block;
 }
 #secondaryBar {
 	padding: .5rem;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+	z-index: 2;
 }
 .searchTopic {
 	padding: .5rem;
@@ -401,8 +403,9 @@ footer {
 	font-size: 1.2rem;
 	
 	width: 100%;
-	max-width: 20rem;
+	//max-width: 20rem;
 	outline: none;
+	display: inline-block;
 }
 .searchTopic:hover, .searchTopic:focus {
 	box-shadow: inset 0 0 3px rgba(0,0,0,0.2);
@@ -423,6 +426,7 @@ footer {
 	width: calc(100%-15rem);
 	
 	display: block;
+	padding: 0 1rem 1rem;
 }
 .fourth {
 	height: 20%;
@@ -431,7 +435,7 @@ footer {
 	width: 100%;
 	max-width: 40rem;
 	margin: 0 auto;
-	padding: 1rem;
+	
 }
 .posts .post {
 	padding: 1rem;
