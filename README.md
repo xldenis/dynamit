@@ -17,7 +17,7 @@ and present only what you want to see.
 
 This guide assumes you already have ruby 2.0.0 installed.
 
-If you are on Ubuntu, you can follow this guide: http://stackoverflow.com/questions/9056008/installed-ruby-1-9-3-with-rvm-but-command-line-doesnt-show-ruby-v/9056395#9056395
+If you are on Ubuntu, you can follow this [guide](http://stackoverflow.com/questions/9056008/installed-ruby-1-9-3-with-rvm-but-command-line-doesnt-show-ruby-v/9056395#9056395 "Ruby fix on Ubuntu"). 
 
 clone the repo in the folder of your choice whith this command :
 
@@ -36,9 +36,7 @@ Now to run the server, just use the makefile :
 
 	make up
 
-You can then access the website going to the default URL:
-
-		http://localhost:3000/
+You can then access the website going to the default [URL](http://localhost:3000/ "Default port")
 
 To kill the server :
 
@@ -51,10 +49,10 @@ Once you have the KEY and the secret, you should add it to your envirinment vari
 On Ubuntu, open your *.bash_profile* file, and apend the 4 keys to the file. It should
 look like this :
 
-		export FACEBOOK_KEY="329487526874344"
-		export FACEBOOK_SECRET="478n54tv7bw765849cb55w43vt6r7t59"
-		export TWITTER_KEY="UGT6vfdtyRb6bfTRYVd6"
-		export TWITTER_SECRET="gKG69fyRBcbHVcgV65v456Bvd5vd56DVgv546DVY4y"
+> export FACEBOOK_KEY="329487526874344"
+> export FACEBOOK_SECRET="478n54tv7bw765849cb55w43vt6r7t59"
+> export TWITTER_KEY="UGT6vfdtyRb6bfTRYVd6"
+> export TWITTER_SECRET="gKG69fyRBcbHVcgV65v456Bvd5vd56DVgv546DVY4y"
 
 
 # Dependencies
@@ -66,6 +64,6 @@ If you are on Ubuntu, run this command to install it:
 
 # Administration
 
-To have acces to the Sidekiq internals for debugging, go to :
+To have acces to the Sidekiq internals for debugging, go to the [Sidekick Dashboard](http://localhost:3000/sidekiq/)
 
-	http://localhost:3000/sidekiq/
+	
