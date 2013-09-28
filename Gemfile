@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'sidekiq'
 gem 'mongoid', github: "mongoid/mongoid"
 gem 'rabl'
+gem 'oj'
 gem 'koala'
 gem 'bson_ext'
 gem 'omniauth-facebook'

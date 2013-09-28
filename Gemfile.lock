@@ -102,6 +102,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    oj (2.1.4)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
@@ -199,6 +200,7 @@ DEPENDENCIES
   jquery-rails
   koala
   mongoid!
+  oj
   omniauth-facebook
   rabl
   rails (= 4.0.0)
