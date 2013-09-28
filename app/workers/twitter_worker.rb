@@ -20,7 +20,7 @@ class TwitterWorker
       created_time:post.created_at,
                           author:post.user.screen_name) # Might need to be changed to post.user[...]
     ps.user = source.user
-    ps.savee
+    ps.save
   end
 end
 end

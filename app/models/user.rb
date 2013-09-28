@@ -17,6 +17,7 @@ class User
                 secret: auth_hash["credentials"]["secret"],
                 expire_time: auth_hash["credentials"]["expires_at"]
                 )
+            @source.user = user
             if @source.save
                 @user
             else
