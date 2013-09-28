@@ -31,7 +31,10 @@ gem 'rabl'
 gem 'oj'
 gem 'koala'
 gem 'bson_ext'
+
+# Login Gems
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem 'certified'
 
 # Use feedzirra to pull feeds in workers

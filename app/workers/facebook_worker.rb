@@ -6,7 +6,6 @@ class FacebookWorker
 
     graph = Koala::Facebook::API.new(source.token)
     posts = graph.get_connections("me","feed")
-    logger.error posts
     posts.each do |post|
       source.posts.create(post_id:post['id'],
                           descriptor:post['type'],

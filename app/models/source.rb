@@ -7,4 +7,5 @@ class Source
   field :token
   field :expire_time
   field :identifier
+  field :secret
 end
