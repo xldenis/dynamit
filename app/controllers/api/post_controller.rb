@@ -9,4 +9,6 @@ def show
   @feed = current_user.sources.find(params[:source_id])
   @post = @feed.find(params[:id])
 end
+def track
+  Post.update_tracker(params[:posts])
 end
