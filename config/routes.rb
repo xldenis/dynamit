@@ -4,11 +4,8 @@ Dynamite::Application.routes.draw do
   root :to => "sources#index"
   mount Sidekiq::Web, at:"/sidekiq"
     namespace :api,:provides => :json do
-      resources :users do
-        resources :sources,shallow: true do
-          resources :posts
-        end   
-      end
+      resources :users
       resources :posts
-    end
+      post 'posts/track/', to:'posts#track'
+  end
 end

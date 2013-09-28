@@ -40,6 +40,8 @@ gem 'certified'
 # Use feedzirra to pull feeds in workers
 gem 'feedzirra'
 
+gem 'twitter'
+
 gem 'sinatra', require:false
 gem 'slim'
 

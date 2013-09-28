@@ -21,8 +21,20 @@ class Post
 
   field :author
 
-  # validates_presence_of :post_id
-  # validates_presence_of :descriptor
-  # validates_presence_of :created_time
-  # validates_uniqueness_of :post_id
+  field :tracker_time
+
+   validates_presence_of :post_id
+   validates_presence_of :descriptor
+   validates_presence_of :created_time
+   validates_uniqueness_of :post_id
+
+   def update_tracker(posts)
+    posts.each do |id,time|
+      post = Post.find(id)
+      if post
+        post.time += time
+        post.save
+      end
+    end
+  end
 end
