@@ -31,7 +31,7 @@ gem 'rabl'
 gem 'oj'
 gem 'koala'
 gem 'bson_ext'
-
+gem 'byebug'
 # Login Gems
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
