@@ -1,0 +1,20 @@
+<h1>Dynamite</h1>
+
+<div>
+	<label>Name:</label>
+	<input type="text" ng-model="yourName" placeholder="Enter a name here">
+	<hr>
+	<h1>Hello {{yourName}}!</h1>
+</div>
+
+<div ng-controller="feed">
+	<span>Number of Posts: {{numPosts()}}</span>
+	<a href="" ng-click="removeSource('Facebook')">remove facebook posts</a>
+	<button ng-click="loadData()">Load Data</button>
+	<ul>
+		<li ng-repeat="post in posts">
+			<small>{{post.source}}</small>
+			<p>{{post.content}}</p>
+		</li>
+	</ul>
+</div>

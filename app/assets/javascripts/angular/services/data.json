@@ -1,0 +1,4 @@
+[
+	{source:'Facebook', content:"Carlos liked your page", visible:true},
+	{source:"Twitter", content:"Xavier tweeted about turkeys", visible:true}
+]
