@@ -1,7 +1,3 @@
-App.config(['$httpProvider', function($httpProvider) {
-    delete $httpProvider.defaults.headers.post['Content-type'];
-    delete $httpProvider.defaults.headers.common["X-Requested-With"];
-}]);
 App.controller('feed', function($scope, $http, $templateCache) {
 	$scope.posts = [
 		{source:'Facebook', content:"Carlos liked your page", visible:true},
@@ -52,4 +48,32 @@ App.controller('feed', function($scope, $http, $templateCache) {
 		$scope.url = url;
 	};
 	
+	
+	$scope.removeSource = function(source) {
+		angular.forEach($scope.posts, function(post) {
+			if(post.source === source) {
+				post.visible = false;
+				post.content = 'this should be removed';
+			}
+		});
+	};
+	
+	$scope.$on('searching', function() {
+		alert("the user is searching for something");
+	});
+	
+	$scope.$on('handleBroadcast', function(event, args) {
+		angular.forEach($scope.posts, function(post) {
+			if(post.content.search(args.message) < 0) {
+				post.visible = false;
+			}
+			else {
+				post.visible = true;
+			}
+		});
+	});
+	
+	$scope.$on('broadcastLoadData', function(event, args) {
+		$scope.fetch();
+	});
 });

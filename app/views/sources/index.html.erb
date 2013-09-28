@@ -1,2 +1,25 @@
-daas
-<%= current_user.id %><%= logged_in? %>
+<div class="feed" ng-controller="feed">
+	<!-- Search: <input ng-model="query"> -->
+	
+	<!-- <a href="" ng-click="removeSource('Facebook')">remove facebook posts</a> -->
+	
+	<!-- <input type="text" ng-model="url"/> -->
+	<!-- <button class="button" ng-click="fetch()">fetch</button><br> -->
+    
+    <br>
+    
+    <!-- <span>Number of Posts: {{numPosts()}}</span> -->
+    
+	<ul class="posts">
+		<li class="post" ng-repeat="post in posts | filter:query | filter:{visible:true}">
+			<span class="postSource">{{post.source}}</span>
+			<span class="timeStamp">A few seconds ago</span>
+			<span class="postContent">{{post.content}}</span>
+		</li>
+	</ul>
+
+	<!--
+<pre>http status code: {{status}}</pre>
+	<pre>http response data: {{data}}</pre>
+-->
+</div>

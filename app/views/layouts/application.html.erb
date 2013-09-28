@@ -10,9 +10,13 @@
 
 
 <body>
-	<header>
+	<header ng-controller="header">
 		<div class="row red" id="headerBar">
-			<h1>Dynamite</h1>
+			<h1 class="siteTitle">Dynamite</h1>
+			<button class="button button_inverse" id="loadData" ng-click="loadData()">Load Data</button>
+		</div>
+		<div class="row white" id="secondaryBar">
+			<input class="searchTopic" type="text" ng-change="change()" ng-model="searchTerm" placeholder="search for a topic"/>
 		</div>
 	</header>
 	
