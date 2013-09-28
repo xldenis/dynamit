@@ -1,13 +1,14 @@
 # MAKEFILE
 
-# Makefile define tasks you can do with the db/
-# project you've just cloned.
+# Makefile define tasks you can do with the dynamit
+# The commands that you will run the most often are :
+# 
 
 
-REDIS_OPTS	= ""
-MONGO_OPTS	= "--dbpath ./mongodb/"
-SDKIQ_OPTS	= ""
-RAILS_OPTS	= "s"
+REDIS_OPTS	= 
+MONGO_OPTS	= 
+SDKIQ_OPTS	= 
+RAILS_OPTS	= s
 
 
 #					Redis Controls							#
@@ -22,14 +23,14 @@ redis-run:
 
 # Starts a Redis server instance as a background service.
 redis:
-	redis-server $(REDIS_OPTS) > ./log/mongoDB.log &
+	redis-server $(REDIS_OPTS) > ./log/mongoDB.log & > /dev/null
 
 # >>> make redis-stop
 
 # Stops any Redis instance listening on the default port
 # by sending a `SHUTDOWN` command.
 redis-stop:
-	redis-cli SHUTDOWN
+	redis-cli SHUTDOWN > /dev/null
 
 
 #					MongoDB Controls						#
@@ -44,13 +45,13 @@ mongodb-run:
 
 # Starts a MongoDB daemon instance as a background service.
 mongodb:
-	mongod $(MONGO_OPTS) > ./log/mongoDB.log &
+	mongod $(MONGO_OPTS) > ./log/mongoDB.log & > /dev/null
 
 # >>> make mongodb-stop
 
 # Stops the mongodb daemon
 mongodb-stop:
-	mongo --eval "db.getSiblingDB('admin').shutdownServer()"
+	mongod --shutdown > /dev/null
 
 
 #					Sidekiq Controls						#
@@ -65,13 +66,13 @@ sidekiq-run:
 
 # Starts a MongoDB daemon instance as a background service.
 sidekiq:
-	bundle exec sidekiq $(SDKIQ_OPTS) --logfile ./log/sidekiq.log &
+	bundle exec sidekiq $(SDKIQ_OPTS) --logfile ./log/sidekiq.log & > /dev/null
 
 # >>> make mongodb-stop
 
 # Stops the mongodb daemon
 sidekiq-stop:
-	killall sidekicq
+	sidekiqctl stop ./tmp/pids/server.pid > /dev/null
 
 
 
@@ -87,18 +88,18 @@ rails-run:
 
 # Starts a MongoDB daemon instance as a background service.
 rails:
-	rails $(RAILS_OPTS) > ./log/sidekiq.log &
+	rails $(RAILS_OPTS) > ./log/sidekiq.log & > /dev/null
 
 # >>> make mongodb-stop
 
 # Stops the mongodb daemon
 rails-stop:
-	killall -9 ruby Rails
+	killall ruby Rails
 
 
-start: redis sidekiq mongodb rails
+up: redis sidekiq mongodb rails
 
-stop: redis-stop sidekiq-stop mongodb-stop rails-stop
+down: rails-stop mongodb-stop sidekiq-stop redis-stop
 
 routes:
 	rake routes
