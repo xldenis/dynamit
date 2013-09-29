@@ -6,11 +6,9 @@
 	<!-- <input type="text" ng-model="url"/> -->
 	<!-- <button class="button" ng-click="fetch()">fetch</button><br> -->
     
-    <br>
-    
     <!-- <span>Number of Posts: {{numPosts()}}</span> -->
     
-	<ul class="posts">
+	<ul class="posts" infinite-scroll="loadMorePosts()">
 		<li class="post" ng-repeat="post in posts | filter:query" id="{{post.post.post_id}}">
 			<span class="postSource">{{post.post.descriptor}}</span>
 			<span class="timeStamp">{{post.post.created_time}}</span>
