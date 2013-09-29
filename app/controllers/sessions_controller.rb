@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
 	def destroy
 		if session[:current_user_id] != nil
 			session[:current_user_id] == nil
+			redirect_to "/landing.html"
 		end
 	end
 	private
