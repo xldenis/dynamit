@@ -10,7 +10,7 @@ small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, l
 	padding: 0;
 	border: 0;
 	font: inherit;
-	font-family: Helvetica, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	line-height: 1.3;
 	
 	-webkit-box-sizing: border-box;
@@ -169,7 +169,11 @@ i {
 	border-color: #FFFFFF;
 	color: #FF4D4D;
 }
-
+.logoutButton {
+	color: #FF4D4D;
+	background: #FFFFFF;
+	margin: .5rem;
+}
 /* end buttons */
 
 /* colors */
@@ -416,7 +420,7 @@ header {
 	text-align: right;
 }
 #loadData, header .button {
-	margin: .2rem;
+	margin: .3rem;
 	padding: .2rem .5rem;
 	
 	float: right;
@@ -468,18 +472,6 @@ header {
 	
 	display: block;
 	padding: 1rem 1rem;
-	
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	
-	-webkit-box-pack: 			end;
-	-moz-box-pack: 				end;
-	-ms-flex-pack: 				end;
-	-webkit-justify-content:    end;
-	justify-content: 			end;
 }
 .fourth {
 	height: 20%;

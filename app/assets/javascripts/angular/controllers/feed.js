@@ -44,11 +44,11 @@ App.controller('feed', function($scope, $http) {
 	
 	//pull sources for the specified user
 	$scope.getPosts = function(page) {
+		currentPage++;
 		console.log('getting page '+page);
 		var postURL = 'http://localhost:3000/api/posts.json?page='+currentPage;
 		$http.get(postURL).
 		success(function(data) {
-			currentPage++;
 			//format time stamps nicely (ex. a few seconds ago)
 			angular.forEach(data, function(post) {
 				if(post.post.descriptor == 'photo') {
@@ -61,7 +61,7 @@ App.controller('feed', function($scope, $http) {
 			//$scope.posts.concat(data);
 		}).
 		error(function(data) {
-			alert('there was an error getting your sources');
+			console.log('there was an error getting your sources');
 		});
 	};
 	

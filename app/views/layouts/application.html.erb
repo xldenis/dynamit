@@ -19,8 +19,11 @@
 			<input class="searchBar" type="text" ng-change="change()" ng-model="searchTerm" placeholder="search for a topic"/>	
 			
 			<div class="rightButtons">
-				<a class="signInIcon" href="auth/facebook"><i class="icon-facebook-sign"></i></a>
+				<a class="logoutButton button button_inverse" href="auth/facebook">Logout</a>
+				<!--
+<a class="signInIcon" href="auth/facebook"><i class="icon-facebook-sign"></i></a>
 				<a class="signInIcon" href="auth/twitter"><i class="icon-twitter-sign"></i></a>
+-->
 			</div>
 		</div>
 	<% if !@hide_search_bar %>

@@ -1,4 +1,19 @@
 /* Landing Page Styling */
+.page {
+	background: #FFFFFF;
+	border-radius: .2rem;
+	margin: 1rem;
+	padding: 1rem;
+	width: 100%;
+	max-width: 70rem;
+	margin: auto;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+	display: block;
+}
+
+
+
+
 .loginCard {
 	background: #FFFFFF;
 	border-radius: .2rem;
@@ -8,6 +23,7 @@
 	max-width: 30rem;
 	margin: auto;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+	display: block;
 }
 .loginCard .loginTitle {
 	font-size: 1.5rem;
