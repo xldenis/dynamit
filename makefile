@@ -35,7 +35,7 @@ redis-stop:
 # Stops any Redis instance listening on the default port
 # by sending a `SHUTDOWN` command.
 redis-clean:
-	redis-cli DBFLUSH
+	redis-cli FLUSHDB
 
 
 #					MongoDB Controls						#
