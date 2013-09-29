@@ -49,8 +49,8 @@ class Post
     end
   end
 
-  def compute_score()
-    self.inc({:score =>  tracker_time / message["text"].length})
+  def compute_score
+    self.inc({:score =>  conpute_author_score + tracker_time / message["text"].length})
     self.tracker_time /= 2
     self.save
     self.score
@@ -60,7 +60,7 @@ class Post
     last_ten = posts.find(author:author, :limit => 11, :order=> 'created_at desc')
     if last_ten.length > 10
       last_ten.each do |p|
-        sum += p.compute_score
+        sum += p.score
       end
     end
   end
