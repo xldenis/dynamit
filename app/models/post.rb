@@ -33,7 +33,8 @@ class Post
     posts.each do |p|
       post = Post.find_by(post_id:p['id'])
       if post
-        post.time += time
+        time = (p['time'] > 10000)? 1000 : p['time']/10
+        post.inc({:tracker_time => time})
         post.save
       end
     end

@@ -6,9 +6,11 @@ class Api::PostsController < ApplicationController
   end
   def track
     if params[:_json]
-      Post.update_tracker(params[:_json])
-      render nothing: true, status: 200
+      if Post.update_tracker(params[:_json])
+        render nothing: true, status: 200
+      end
+    else
+      render nothing: true, status: 400
     end
-    render nothing: true, status: 400
   end
 end

@@ -18,6 +18,7 @@ App.controller('feed', function($scope, $http) {
 				$http.post(trackingURL, trackingData).
 				success(function(data) {
 					console.log('tracking data was successfully posted');
+					trackingData = [];
 				}).
 				error(function(data) {
 					console.log('there was an error posting the tracking data');
