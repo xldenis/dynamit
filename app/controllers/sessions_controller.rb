@@ -5,7 +5,9 @@ class SessionsController < ApplicationController
 			session[:current_user_id] = @user.id
 		else
 			@user = current_user
-			@user.sources.find_or_create(auth_hash)
+			@source = Source.find_or_create(auth_hash)
+			@source.user = @user
+			@source.save
 		end
 		
 		current_user.sources.each do |source|
