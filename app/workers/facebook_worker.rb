@@ -1,12 +1,12 @@
 class FacebookWorker
   include Sidekiq::Worker
 
-  def perform(source_id)
+  def perform(source_id, offset=0)
    source = Source.find(source_id)
 
 
    graph = Koala::Facebook::API.new(source.token)
-   posts = graph.get_connections("me","home",{:limit => 100 })
+   posts = graph.get_connections("me","home",{:limit => 100 :offset offset})
    posts.each do |post|
     p = source.posts.new(post_id:post['id'],
       descriptor:post['type'],
