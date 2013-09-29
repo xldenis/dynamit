@@ -25,7 +25,8 @@ class Source
         secret: auth_hash["credentials"]["secret"],
         expire_time: auth_hash["credentials"]["expires_at"]
         )
-      logger.error @source.save
+     @source.save
     end
+      @source
     end
   end
