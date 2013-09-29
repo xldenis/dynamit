@@ -355,6 +355,14 @@ footer {
 header {
 	box-shadow: 0 1px 4px rgba(0,0,0,.3);
 }
+.headerLogo {
+	width: 1.3rem;
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: -.2rem;
+	margin-left: .3rem;
+	margin-right: .3rem;
+}
 #headerBar {
 	padding: .2rem .5rem;
 	
@@ -508,7 +516,8 @@ header {
 }
 .postSource i {
 	color: #CCCCCC;
-	font-size: 1.5rem;
+	font-size: 1.1rem;
+	margin-right: .3rem;
 }
 .postContent {
 	display: inline-block;
@@ -536,7 +545,7 @@ header {
 }
 .facebookPhoto .photo {
 	width: 98%;
-	margin: .2rem auto .4rem;
+	margin: .5rem auto;
 	display: block;
 	
 }

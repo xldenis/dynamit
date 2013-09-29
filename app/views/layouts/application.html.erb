@@ -6,6 +6,7 @@
 	
 	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= stylesheet_link_tag "font-awesome", media: "all", "data-turbolinks-track" => true %>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 	
 	<%= csrf_meta_tags %>
 </head>
@@ -14,7 +15,7 @@
 <body>
 	<header ng-controller="header">
 		<div class="row red" id="headerBar">
-			<h1 class="siteTitle"><a href="landing.html">Dynamit</a></h1>
+			<h1 class="siteTitle"><a href="landing.html"><%= image_tag "dynamitblk.png", :class=>"headerLogo" %> Dynamit</a></h1>
 			<% if !@hide_search_bar %>
 			<input class="searchBar" type="text" ng-change="change()" ng-model="searchTerm" placeholder="search for a topic"/>	
 			
