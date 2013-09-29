@@ -1,4 +1,8 @@
 App.controller('feed', function($scope, $http) {
+	//array of time spent on each post
+	var trackingData = [];
+	
+	//array of all posts
 	$scope.posts = [];
 	
 	$scope.init = function () {
@@ -53,4 +57,26 @@ App.controller('feed', function($scope, $http) {
 		$scope.fetch();
 	});
 	
+	$scope.scrollStopped = function() {
+		console.log('hey scroll');
+		
+		//find which posts are visible
+		$('.post').each(function(index, element) {
+			if($scope.isVisible(element)) {
+				trackingData.push($(element).attr('id'));
+				//alert($(element).children('.postContent').text());
+			}
+		});
+	}
+
+	$scope.isVisible = function(element) {
+		var docViewTop = $(window).scrollTop();
+		var docViewBottom = docViewTop + $(window).height();
+		
+		var elemTop = $(element).offset().top;
+		var elemBottom = elemTop + $(element).height();
+		
+		return ( (elemBottom >= docViewTop) && (elemTop <= docViewBottom) 
+			  && (elemBottom <= docViewBottom) &&  (elemTop >= docViewTop) );
+	}
 });

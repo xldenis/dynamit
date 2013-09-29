@@ -21,9 +21,7 @@ class User
             if @source.save
                 @user
             else
-                #error saving source
-                @user.destroy
-            end
+                #error saving source            end
         else
             #couldnt create user, error
         end

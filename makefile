@@ -32,6 +32,11 @@ redis:
 redis-stop:
 	redis-cli SHUTDOWN > /dev/null
 
+# Stops any Redis instance listening on the default port
+# by sending a `SHUTDOWN` command.
+redis-clean:
+	redis-cli DBFLUSH
+
 
 #					MongoDB Controls						#
 #############################################################
@@ -52,6 +57,9 @@ mongodb:
 # Stops the mongodb daemon
 mongodb-stop:
 	mongod --shutdown > /dev/null
+
+mongodb-clean:
+	rake db:reset
 
 
 #					Sidekiq Controls						#
