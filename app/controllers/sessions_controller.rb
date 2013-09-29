@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	def create
+		
 		if session[:current_user_id]  == nil
 			@user = User.find_or_create_by_hash(request.env['omniauth.auth'])
 			session[:current_user_id] = @user.id
