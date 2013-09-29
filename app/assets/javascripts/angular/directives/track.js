@@ -4,11 +4,14 @@ App.directive('whenScrolled', function() {
 		//scroll event is only called on element when it has a scroll bar
 		var element = $(window);
 		element.bind('scroll', function() {
+			
+			scope.updateData();
+			
 			if (element.data('scrollTimeout')) {
 				clearTimeout(element.data('scrollTimeout'));
 			}
 			
-			element.data('scrollTimeout', setTimeout(scope.scrollStopped,250,element));
+			element.data('scrollTimeout', setTimeout(scope.scrollStop,250,element));
 		});
 	};
 });

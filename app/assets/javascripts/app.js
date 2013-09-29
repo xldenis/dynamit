@@ -12,12 +12,4 @@ App.run(function($rootScope) {
     $rootScope.$on('emitLoadData', function(event, args) {
         $rootScope.$broadcast('broadcastLoadData', args);
     });
-    
-    $rootScope.$on('stopScroll', function(event, args) {
-        $rootScope.$broadcast('scrollStopped', args);
-    });
-    
-    $rootScope.$on('emitLoadData', function(event, args) {
-        $rootScope.$broadcast('broadcastLoadData', args);
-    });
 });

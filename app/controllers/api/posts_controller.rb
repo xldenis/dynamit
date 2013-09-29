@@ -4,4 +4,12 @@ class Api::PostsController < ApplicationController
   def index
     @posts = current_user.posts.skip(@page_offset).limit(@page_size).desc(:created_time)
   end
+  def track
+  	params[:posts].each do |post|
+  		ps = Post.find(post['id'])
+  		if ps
+  			ps.time += post['time']
+  		end
+  	end
+  end
 end
