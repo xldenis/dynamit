@@ -2,7 +2,7 @@
 <html ng-app="dynamite">
 
 <head>
-	<title>Dynamite</title>
+	<title>Dynamit</title>
 	
 	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= stylesheet_link_tag "font-awesome", media: "all", "data-turbolinks-track" => true %>
@@ -14,10 +14,14 @@
 <body>
 	<header ng-controller="header">
 		<div class="row red" id="headerBar">
-			<h1 class="siteTitle"><a href="landing.html">Dynamite</a></h1>
-			<!-- <button class="button button_inverse" id="loadData" ng-click="loadData()">Load Data</button> -->
-			<a class="signInIcon" href="auth/facebook"><i class="icon-facebook-sign"></i></a>
-			<a class="signInIcon" href="auth/twitter"><i class="icon-twitter-sign"></i></a>
+			<h1 class="siteTitle"><a href="landing.html">Dynamit</a></h1>
+			
+			<input class="searchBar" type="text" ng-change="change()" ng-model="searchTerm" placeholder="search for a topic"/>	
+			
+			<div class="rightButtons">
+				<a class="signInIcon" href="auth/facebook"><i class="icon-facebook-sign"></i></a>
+				<a class="signInIcon" href="auth/twitter"><i class="icon-twitter-sign"></i></a>
+			</div>
 		</div>
 	<% if !@hide_search_bar %>
 		<div class="row white" id="secondaryBar">
@@ -38,6 +42,12 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular-resource.js"></script>
 	
 	<%= javascript_include_tag "application" %>
+	
+	<script>
+		$(document).ready(function(){
+			$("header").sticky({topSpacing:0});
+		});
+	</script>
 	
 </body>
 
