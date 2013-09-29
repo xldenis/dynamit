@@ -22,9 +22,12 @@ class SessionsController < ApplicationController
 	end
 	def destroy
 		if session[:current_user_id] != nil
-			session[:current_user_id] == nil
-			redirect_to "/landing.html"
+			session[:current_user_id] = nil
+			@current_user = nil
+			
+			redirect_to "/landing.html" and return
 		end
+		redirect_to "/landing.html"
 	end
 	private
 	def auth_hash
