@@ -4,22 +4,53 @@
 		<li class="post" ng-repeat="post in posts | filter:query" id="{{post.post.post_id}}">
 			<div ng-switch on="post.post.provider">
 				
-				<div ng-switch-default>
-					<span class="postSource"><i class="icon-facebook-sign icon-large"></i> {{post.post.author.name}}</span>
+				<div ng-switch-when="facebook">
+					<div ng-switch on="post.post.descriptor">
+						<div ng-switch-when="status" class="facebookStatus">
+							<span class="postSource"><i class="icon-facebook-sign icon-large"></i> {{post.post.author.name}}</span>
+							<span class="timeStamp">{{post.post.created_time}}</span>
+							
+							<span class="postContent">{{post.post.message.text}}</span>
+							<a href="{{post.post.message.link}}" class="postLink">Link</a>
+						</div>
+						<div ng-switch-when="photo" class="facebookPhoto">
+							<span class="postSource"><i class="icon-facebook-sign icon-large"></i> {{post.post.author.name}}</span>
+							
+							<span class="timeStamp">{{post.post.created_time}}</span>
+							<img class="photo" src="https://lh5.googleusercontent.com/-y03Xt-MUmCc/TmjmBLP_vEI/AAAAAAAAA6g/Hg8M78tnMiA/w250-h249-no/Gravatar2.png" />
+							<span class="postContent">{{post.post.message.text}}</span>
+							<a href="{{post.post.message.link}}" class="postLink">Link</a>
+						</div>
+						<div ng-switch-when="video" class="facebookVideo" style="display:none">
+							<span class="postSource"><i class="icon-facebook-sign icon-large"></i> {{post.post.author.name}}</span>
+							
+							<span class="timeStamp">{{post.post.created_time}}</span>
+							<img class="video" src="https://lh5.googleusercontent.com/-y03Xt-MUmCc/TmjmBLP_vEI/AAAAAAAAA6g/Hg8M78tnMiA/w250-h249-no/Gravatar2.png" />
+							<span class="postContent">{{post.post.message.text}}</span>
+							<a href="{{post.post.message.link}}" class="postLink">Link</a>
+						</div>
+						<div ng-switch-default>
+							<span class="postSource"><i class="icon-facebook-sign icon-large"></i> {{post.post.author.name}}</span>
+							<span class="postDescriptor">{{post.post.descriptor}}</span>
+							<span class="timeStamp">{{post.post.created_time}}</span>
+							
+							<span class="postContent">{{post.post.message.text}}</span>
+							<a href="{{post.post.message.link}}" class="postLink">Link</a>
+						</div>
+					</div>
+				</div>
+				
+				<div ng-switch-when="twitter">
+					<span class="postSource"><i class="icon-twitter-sign icon-large"></i> {{post.post.descriptor}}</span>
+					<img src="http://scm-l3.technorati.com/13/07/24/76953/twitter-logo-bird.gif" />
 					<span class="timeStamp">{{post.post.created_time}}</span>
 					<span class="postContent">{{post.post.message.text}}</span>
 					<a href="{{post.post.message.link}}" class="postLink">Link</a>
 				</div>
 				
-				<div ng-switch-when="twitter">
-					<span style="color:#008000; font-weight:bold;">The statement is <span style="color: #FF0000;">NOT</span> true</span>
-				</div>
-				
-				<!--
-<div ng-switch-default>
+				<div ng-switch-default>
 					<span style="color: rgb(255, 0, 0); font-weight: bold;">No provider was provided</span>
 				</div>
--->
 				
 			</div>
 		</li>

@@ -503,7 +503,7 @@ header {
 .timeStamp {
 	position: absolute;
 	right: 1.3rem;
-	top: 1.1rem;
+	top: 1.5rem;
 	font-size: .8rem;
 	color: #AAAAAA;
 }
@@ -549,6 +549,19 @@ header {
 	-moz-transition: 	all .2s;
 	-ms-transition: 	all .2s;
 	transition: 		all .2s;
+}
+.facebookStatus .postContent {
+	margin: 1rem;
+}
+.facebookStatus .postContent:before, .facebookStatus .postContent:after {
+	content: '"';
+}
+.facebookPhoto .photo {
+	width: 100%;
+	
+}
+.facebookPhoto .postContent {
+	margin: 1rem 0 0 0;
 }
 /* end project specific css */
 
