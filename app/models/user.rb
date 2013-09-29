@@ -17,13 +17,11 @@ class User
                 secret: auth_hash["credentials"]["secret"],
                 expire_time: auth_hash["credentials"]["expires_at"]
                 )
-            @source.user = user
+            @source.user = @user
             if @source.save
                 @user
             else
-                #error saving source
-                @user.destroy
-            end
+                #error saving source            end
         else
             #couldnt create user, error
         end
