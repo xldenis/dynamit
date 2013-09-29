@@ -23,7 +23,7 @@ redis-run:
 
 # Starts a Redis server instance as a background service.
 redis:
-	redis-server $(REDIS_OPTS) > ./log/mongoDB.log & > /dev/null
+	redis-server $(REDIS_OPTS) > ./log/redis.log & > /dev/null
 
 # >>> make redis-stop
 
