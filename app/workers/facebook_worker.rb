@@ -5,7 +5,7 @@ class FacebookWorker
      source = Source.find(source_id)
 
     graph = Koala::Facebook::API.new(source.token)
-    posts = graph.get_connections("me","home")
+    posts = graph.get_connections("me","home",{:limit => 100})
     posts.each do |post|
       p = source.posts.new(post_id:post['id'],
                           descriptor:post['type'],

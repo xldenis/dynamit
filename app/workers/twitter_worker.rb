@@ -4,13 +4,11 @@ class TwitterWorker
   def perform(source_id)
    source = Source.find(source_id)
    client = Twitter::Client.new 
-    client.consumer_key        = ENV["TWITTER_KEY"]
-    client.consumer_secret     = ENV["TWITTER_SECRET"]
     client.oauth_token         = source.token
     client.oauth_token_secret  = source.secret
   
   puts client
-  posts = client.home_timeline
+  posts = client.home_timeline(:count => 150)
 
   logger.error posts
   posts.each do |post|

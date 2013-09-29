@@ -14,10 +14,8 @@ class Source
  # validates_presence_of :expire_time
   validates_uniqueness_of :identifier, :scope => :provider
   def self.find_or_create(auth_hash)
-    @source = Source.where(:provider => auth_hash["provider"],:identifier => auth_hash["identifier"])
-    logger.error "Source count: "<< @source.count.to_s
-    
-    unless @source.first != nil
+    @source = Source.where(:provider => auth_hash["provider"],:identifier => auth_hash["identifier"]).first    
+    unless @source != nil
       @source = Source.new(
         provider: auth_hash["provider"],
         identifier: auth_hash["identifier"],
