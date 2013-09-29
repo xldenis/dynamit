@@ -24,8 +24,8 @@ class ApplicationController < ActionController::Base
     end
   end
   def page_params
-    @page_number = params[:page].to_i || 0
-    @page_size = params[:limit].to_i || 20
+    @page_number = (params[:page]|| 0).to_i
+    @page_size = (params[:limit] || 20).to_i
     @page_offset = @page_number * @page_size
   end
 end
