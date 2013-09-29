@@ -5,11 +5,10 @@ class Api::PostsController < ApplicationController
     @posts = current_user.posts.skip(@page_offset).limit(@page_size).desc(:created_time)
   end
   def track
-  	params[:posts].each do |post|
-  		ps = Post.find(post['id'])
-  		if ps
-  			ps.time += post['time']
-  		end
-  	end
+    if params[:_json]
+      Post.update_tracker(params[:_json])
+      render nothing: true, status: 200
+    end
+    render nothing: true, status: 400
   end
 end

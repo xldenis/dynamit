@@ -23,14 +23,15 @@ class Post
 
   field :tracker_time
 
+  field :time, type:Integer
    validates_presence_of :post_id
    validates_presence_of :descriptor
    validates_presence_of :created_time
    validates_uniqueness_of :post_id
 
-   def update_tracker(posts)
-    posts.each do |id,time|
-      post = Post.find(id)
+   def self.update_tracker(posts)
+    posts.each do |p|
+      post = Post.find_by(post_id:p['id'])
       if post
         post.time += time
         post.save
