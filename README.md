@@ -1,5 +1,7 @@
 # Dynamit
 
+----------------------
+
 A simple web interface that combines your favourites online feeds,
 and present only what you want to see.
 
@@ -12,8 +14,22 @@ and present only what you want to see.
 * RSS feeds
 * AngularJS
 
+# Vagrant VM (Simple Install)
 
-# Installation
+Get the latest version of Vagrant for your system on the [download page](http://downloads.vagrantup.com/).
+Just download the VM from the [link]() (currently offline) and execute the following commands in the 
+folder of your choice :
+
+> mkdir dynamit-box
+> cd dynamit-box
+> vagrant init dynamit-vm [link]()
+> vagrant up
+> vagrant ssh
+
+Now follow the instructions to register your application, and you will then be able to access the website bygoing to the default [Dynamit URL](http://localhost:3000/ "Default port");
+
+
+# Manual Installation
 
 This guide assumes you already have ruby 2.0.0 installed.
 
@@ -43,6 +59,7 @@ To kill the server :
 	make down
 
 # Application Registration
+----------------
 
 To register your app to access Twitter and Facebook, you will need to register them.
 Once you have the KEY and the secret, you should add it to your envirinment variables.

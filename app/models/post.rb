@@ -24,12 +24,12 @@ class Post
   field :tracker_time
 
   field :time, type:Integer
-   validates_presence_of :post_id
-   validates_presence_of :descriptor
-   validates_presence_of :created_time
-   validates_uniqueness_of :post_id
+  validates_presence_of :post_id
+  validates_presence_of :descriptor
+  validates_presence_of :created_time
+  validates_uniqueness_of :post_id
 
-   def self.update_tracker(posts)
+  def self.update_tracker(posts)
     posts.each do |p|
       post = Post.find_by(post_id:p['id'])
       if post
@@ -39,4 +39,22 @@ class Post
       end
     end
   end
+
+  def compute_score()
+    score = tracker_time / message["text"].length
+    tracker_time /= 2
+    save
+    score
+  end
+
+  def compute_author_score(posts)
+    last_ten = posts.find(author:author, :limit => 11, :order=> 'created_at desc')
+    if last_ten.length > 10
+      last_ten.each do |p|
+        sum += p.compute_score
+      end
+    end
+  end
+
+
 end
