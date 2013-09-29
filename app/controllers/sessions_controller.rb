@@ -20,6 +20,11 @@ class SessionsController < ApplicationController
 		end
 		redirect_to :root
 	end
+	def destroy
+		if session[:current_user_id] != nil
+			session[:current_user_id] == nil
+		end
+	end
 	private
 	def auth_hash
 		request.env['omniauth.auth']

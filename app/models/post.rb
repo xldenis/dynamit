@@ -24,10 +24,18 @@ class Post
   field :tracker_time
 
   field :time, type:Integer
+
+  field :score, type:Integer
+
   validates_presence_of :post_id
   validates_presence_of :descriptor
   validates_presence_of :created_time
   validates_uniqueness_of :post_id
+  before_create :init_score
+
+  def init_score
+    self.score = rand(500...1500)
+  end
 
   def self.update_tracker(posts)
     posts.each do |p|
@@ -35,16 +43,17 @@ class Post
       if post
         time = (p['time'] > 10000)? 1000 : p['time']/10
         post.inc({:tracker_time => time})
+        post.compute_score
         post.save
       end
     end
   end
 
   def compute_score()
-    score = tracker_time / message["text"].length
-    tracker_time /= 2
-    save
-    score
+    self.inc({:score =>  tracker_time / message["text"].length})
+    self.tracker_time /= 2
+    self.save
+    self.score
   end
 
   def compute_author_score(posts)
