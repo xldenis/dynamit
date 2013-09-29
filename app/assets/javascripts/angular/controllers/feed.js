@@ -51,6 +51,9 @@ App.controller('feed', function($scope, $http) {
 			currentPage++;
 			//format time stamps nicely (ex. a few seconds ago)
 			angular.forEach(data, function(post) {
+				if(post.post.descriptor == 'photo') {
+					post.post.message.link = post.post.message.link.substr(0, post.post.message.link.length-6)+"_n.jpg";
+				}
 				post.post.created_time = new Date(post.post.created_time).toRelativeTime();
 				$scope.posts.push(post);
 			});

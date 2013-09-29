@@ -520,7 +520,7 @@ header {
 }
 .postContent {
 	display: inline-block;
-	margin: 2rem 1rem 3rem ;
+	margin: 2rem 1rem 3rem .5rem;
 	font-weight: 400;
 	
 	color: #333333;
@@ -531,37 +531,39 @@ header {
 	bottom: 1.1rem;
 	background: #00A6FF;
 	border-radius: .2rem;
-	padding: .2rem 2rem;
+	padding: .4rem 1rem;
 	color: #FFFFFF;
-	font-weight: 400;
-	opacity: 0;
-	
-	-webkit-transition: all .2s;
-	-moz-transition: 	all .2s;
-	-ms-transition: 	all .2s;
-	transition: 		all .2s;
+	font-weight: 800;
+	text-align: center;
 }
-.post:hover .postLink {
-	display: block;
-	opacity: 1;
-	
-	-webkit-transition: all .2s;
-	-moz-transition: 	all .2s;
-	-ms-transition: 	all .2s;
-	transition: 		all .2s;
-}
-.facebookStatus .postContent {
-	margin: 1rem;
+.facebookStatus .postContent, .facebook-checkin .postContent {
+	margin: 1rem 5rem .5rem .5rem;
 }
 .facebookStatus .postContent:before, .facebookStatus .postContent:after {
 	content: '"';
 }
 .facebookPhoto .photo {
-	width: 100%;
+	width: 98%;
+	margin: .2rem auto .4rem;
+	display: block;
 	
 }
 .facebookPhoto .postContent {
-	margin: 1rem 0 0 0;
+	margin: 1rem 5rem .5rem .5rem;
+}
+.twitterPost img {
+	display: inline-block !important;
+}
+.facebookLink .link {
+	margin: .5rem 5rem .5rem .5rem;
+	display: block;
+	color: #0099FF;
+}
+.facebookLink .postContent {
+	margin: .5rem 5rem .5rem .5rem;
+}
+.facebook-video {
+	display: none;
 }
 /* end project specific css */
 
