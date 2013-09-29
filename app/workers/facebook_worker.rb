@@ -11,6 +11,7 @@ class FacebookWorker
                           descriptor:post['type'],
                           message: {text: post['message']||post['story'],link:post['link']},
                           created_time:post['created_time'],
+                          author:post['from'],
                           user: source.user)
       p.save
     end
