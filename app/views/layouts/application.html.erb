@@ -15,7 +15,7 @@
 	<header ng-controller="header">
 		<div class="row red" id="headerBar">
 			<h1 class="siteTitle"><a href="landing.html">Dynamit</a></h1>
-			
+			<% if !@hide_search_bar %>
 			<input class="searchBar" type="text" ng-change="change()" ng-model="searchTerm" placeholder="search for a topic"/>	
 			
 			<div class="rightButtons">
@@ -25,6 +25,7 @@
 				<a class="signInIcon" href="auth/twitter"><i class="icon-twitter-sign"></i></a>
 -->
 			</div>
+			<% end %>
 		</div>
 	<% if !@hide_search_bar %>
 		<div class="row white" id="secondaryBar">

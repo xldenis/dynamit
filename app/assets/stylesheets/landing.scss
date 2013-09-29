@@ -1,28 +1,47 @@
 /* Landing Page Styling */
 .page {
 	background: #FFFFFF;
-	border-radius: .2rem;
-	margin: 1rem;
 	padding: 1rem;
 	width: 100%;
-	max-width: 70rem;
-	margin: auto;
+	margin: 0 auto;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 	display: block;
 }
-
-
+.middle {
+	width: 100%;
+	max-width: 60rem;
+	margin: 0 auto;
+}
+.page h2 {
+	font-size: 3rem;
+	padding: 3rem;
+	text-align: center;
+}
+.page p {
+	font-size: 1.4rem;
+	
+	margin: 4rem 8rem;
+	color: #888888;
+}
+.page h3 {
+	font-weight: 700;
+	font-size: 2.5rem;
+	text-align: center;
+}
+.page h4 {
+	font-weight: 100;
+	font-size: 2rem;
+	text-align: center;
+	color: #555555;
+}
 
 
 .loginCard {
 	background: #FFFFFF;
-	border-radius: .2rem;
-	margin: 1rem;
+	margin: 5rem auto;
 	padding: 1rem;
 	width: 100%;
 	max-width: 30rem;
-	margin: auto;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 	display: block;
 }
 .loginCard .loginTitle {
