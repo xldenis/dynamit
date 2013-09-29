@@ -5,9 +5,10 @@ class TimetrackerWorker
 
     time_tracker.each do |trckr|
 
-      post = Post.find(post_id:trckr['id'])
+      post = Post.find_by(post_id:trckr['id'])
       if post
-        post.time += trackr['time']
+        post.inc({:tracker_time => trackr['time'] })
+        post.update_score
         post.save
       end
     end

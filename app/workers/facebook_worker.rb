@@ -6,7 +6,7 @@ class FacebookWorker
 
 
    graph = Koala::Facebook::API.new(source.token)
-   posts = graph.get_connections("me","home",{:limit => 100 :offset offset})
+   posts = graph.get_connections("me","home",{:limit => 100, :offset => offset})
    posts.each do |post|
      type = (case post['type']
       when "photo"
