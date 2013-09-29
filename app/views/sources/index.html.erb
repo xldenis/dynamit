@@ -1,24 +1,28 @@
-<div class="feed" ng-controller="feed" data-ng-init="init()" when-scrolled="">
-	<!-- Search: <input ng-model="query"> -->
-	
-	<!-- <a href="" ng-click="removeSource('Facebook')">remove facebook posts</a> -->
-	
-	<!-- <input type="text" ng-model="url"/> -->
-	<!-- <button class="button" ng-click="fetch()">fetch</button><br> -->
-    
-    <!-- <span>Number of Posts: {{numPosts()}}</span> -->
-    
+<div class="feed" ng-controller="feed" data-ng-init="init()" when-scrolled="">    
 	<ul class="posts" infinite-scroll="loadMorePosts()">
+		<input ng-model="query" style="display:none;" />
 		<li class="post" ng-repeat="post in posts | filter:query" id="{{post.post.post_id}}">
-			<span class="postSource">{{post.post.descriptor}}</span>
-			<span class="timeStamp">{{post.post.created_time}}</span>
-			<span class="postContent">{{post.post.message.text}}</span>
-			<a href="{{post.post.message.link}}" class="postLink">{{post.post.message.link}}</a>
-		</li>
-	</ul>
-
-<!--
-	<pre>http status code: {{status}}</pre>
-	<pre>http response data: {{data}}</pre>
+			<div ng-switch on="post.post.provider">
+				
+				<div ng-switch-default>
+					<span class="postSource"><i class="icon-facebook-sign icon-large"></i> {{post.post.author.name}}</span>
+					<span class="timeStamp">{{post.post.created_time}}</span>
+					<span class="postContent">{{post.post.message.text}}</span>
+					<a href="{{post.post.message.link}}" class="postLink">Link</a>
+				</div>
+				
+				<div ng-switch-when="twitter">
+					<span style="color:#008000; font-weight:bold;">The statement is <span style="color: #FF0000;">NOT</span> true</span>
+				</div>
+				
+				<!--
+<div ng-switch-default>
+					<span style="color: rgb(255, 0, 0); font-weight: bold;">No provider was provided</span>
+				</div>
 -->
+				
+			</div>
+		</li>
+		
+	</ul>
 </div>

@@ -6,6 +6,11 @@ App.controller('feed', function($scope, $http) {
 	var isScrolling = false;
 	var intervalSendTrackingData = 30;
 	var trackingURL = 'http://localhost:3000/api/posts/track';
+	
+	$scope.templates = [{ name: 'facebookTemplate.html', url: 'facebookTemplate.html'},
+						{ name: 'twitterTemplate.html', url: 'twitterTemplate.html'} ];
+	
+	$scope.template = $scope.templates[0];
 	//array of all posts
 	$scope.posts = [];
 	
@@ -66,14 +71,7 @@ App.controller('feed', function($scope, $http) {
 	
 	//handle event communication between controllers
 	$scope.$on('handleBroadcast', function(event, args) {
-		angular.forEach($scope.posts, function(post) {
-			if(post.content.search(args.message) < 0) {
-				post.visible = false;
-			}
-			else {
-				post.visible = true;
-			}
-		});
+		$scope.query = args.message;
 	});
 	
 	$scope.$on('broadcastLoadData', function(event, args) {
