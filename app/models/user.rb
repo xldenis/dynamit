@@ -22,7 +22,7 @@ class User
                 @user
             else
                 #error saving source            end
-        else
+            end
             #couldnt create user, error
         end
     end

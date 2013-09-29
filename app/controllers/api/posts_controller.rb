@@ -1,8 +1,7 @@
 class Api::PostsController < ApplicationController
   before_filter :authorized?
-def index
-  # @feed = current_user.sources.find(params[:source_id])
-  # @post = @feed.posts.limit(25)
-  @posts = current_user.posts.desc(:created_time).limit(25)
-end
+  before_filter :page_params
+  def index
+    @posts = current_user.posts.skip(@page_offset).limit(@page_size).desc(:created_time)
+  end
 end
