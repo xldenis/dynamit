@@ -1,12 +1,13 @@
 App.controller('feed', function($scope, $http) {
 	//array of time spent on each post
 	var trackingData = [];
+	var currentPage = 0;
 	
 	//array of all posts
 	$scope.posts = [];
 	
 	$scope.init = function () {
-		$scope.getPosts();
+		$scope.getPosts(currentPage);
 	};
 
 	$scope.numPosts = function() {
@@ -20,16 +21,19 @@ App.controller('feed', function($scope, $http) {
 	};
 	
 	//pull sources for the specified user
-	$scope.getPosts = function() {
-		var postURL = 'http://localhost:3000/api/posts.json';
+	$scope.getPosts = function(page) {
+		console.log('getting page '+page);
+		var postURL = 'http://localhost:3000/api/posts.json?page='+currentPage;
 		$http.get(postURL).
 		success(function(data) {
+			currentPage++;
 			//format time stamps nicely (ex. a few seconds ago)
 			angular.forEach(data, function(post) {
 				post.post.created_time = new Date(post.post.created_time).toRelativeTime();
+				$scope.posts.push(post);
 			});
 			
-			$scope.posts = data;
+			
 		}).
 		error(function(data) {
 			alert('there was an error getting your sources');
@@ -37,11 +41,14 @@ App.controller('feed', function($scope, $http) {
 	};
 	
 	$scope.fetch = function() {
-		$scope.getPosts();		
+		$scope.getPosts(currentPage);		
+	};
+	
+	$scope.loadMorePosts = function() {
+		$scope.getPosts(currentPage);
 	};
 	
 	//handle event communication between controllers
-	
 	$scope.$on('handleBroadcast', function(event, args) {
 		angular.forEach($scope.posts, function(post) {
 			if(post.content.search(args.message) < 0) {

@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 Dynamite::Application.routes.draw do
   get '/auth/:provider/callback',to: 'sessions#create'
+  get '/landing',to: 'landing#index'
   root :to => "sources#index"
   mount Sidekiq::Web, at:"/sidekiq"
     namespace :api,:provides => :json do

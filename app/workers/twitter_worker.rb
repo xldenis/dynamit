@@ -9,9 +9,8 @@ class TwitterWorker
   
   puts client
   posts = client.home_timeline(:count => 150)
-
-  logger.error posts
-  posts.each do |post|
+   logger.error posts
+   posts.each do |post|
     ps = source.posts.new(post_id:post.id,
       descriptor:post.user.name,
       message: {text:post.text,link:post.profile_image_url},

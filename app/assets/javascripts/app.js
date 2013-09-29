@@ -1,4 +1,5 @@
-window.App = angular.module('dynamite', ['ngResource']);
+window.App = angular.module('dynamite', ['ngResource', 'infinite-scroll']);
+
 App.run(function($rootScope) {
     /*
         Receive emitted message and broadcast it.

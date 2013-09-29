@@ -35,7 +35,7 @@ redis-stop:
 # Stops any Redis instance listening on the default port
 # by sending a `SHUTDOWN` command.
 redis-clean:
-	redis-cli DBFLUSH
+	redis-cli FLUSHDB
 
 
 #					MongoDB Controls						#
@@ -64,21 +64,21 @@ mongodb-clean:
 
 #					Sidekiq Controls						#
 #############################################################
-# >>> make mongodb-run
+# >>> make sidekiq-run
 #
 # Starts a MongoDB daemon instance in current terminal window.
 sidekiq-run:
 	bundle exec sidekiq $(SDKIQ_OPTS)
 
-# >>> make mongodb
+# >>> make sidekiq
 
 # Starts a MongoDB daemon instance as a background service.
 sidekiq:
 	bundle exec sidekiq $(SDKIQ_OPTS) --logfile ./log/sidekiq.log & > /dev/null
 
-# >>> make mongodb-stop
+# >>> make sidekiq-stop
 
-# Stops the mongodb daemon
+# Stops the sidekiq daemon
 sidekiq-stop:
 	sidekiqctl stop ./tmp/pids/server.pid > /dev/null
 
@@ -88,26 +88,30 @@ sidekiq-stop:
 #############################################################
 # >>> make rails-run
 #
-# Starts a MongoDB daemon instance in current terminal window.
+# Starts a Rails server in current terminal window.
 rails-run:
 	rails $(RAILS_OPTS)
 
-# >>> make mongodb
+# >>> make rails
 
 # Starts a MongoDB daemon instance as a background service.
 rails:
 	rails $(RAILS_OPTS) > ./log/sidekiq.log & > /dev/null
 
-# >>> make mongodb-stop
+# >>> make rails-stop
 
-# Stops the mongodb daemon
+# Stops the rails server
 rails-stop:
 	killall ruby Rails
 
 
 up: redis sidekiq mongodb rails
 
+out: down
+
 down: rails-stop mongodb-stop sidekiq-stop redis-stop
+
+clean: mongodb-clean redis-clean
 
 routes:
 	rake routes

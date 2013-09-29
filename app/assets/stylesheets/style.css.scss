@@ -345,15 +345,6 @@ footer {
 	-moz-transition: 	all .3s;
 	transition: 		all .3s;
 }
-#first {
-   /* Set order lower than 0 so it moves before other section elements,
-      except old spec, where it must be positive.
- */
-   -webkit-box-ordinal-group: 	1;
-   -moz-box-ordinal-group: 		1;
-   -ms-flex-order: 				1;
-   order: 						1;
-}
 /* end flexbox */
 
 /* project specific css */
@@ -379,6 +370,9 @@ footer {
 	-webkit-box-flex: 	1;
 	-moz-box-flex:		1;
 	flex: 				1;
+}
+.siteTitle a {
+	color: #FFFFFF;
 }
 #loadData, header .button {
 	margin: .2rem;
@@ -431,7 +425,19 @@ footer {
 	width: calc(100%-15rem);
 	
 	display: block;
-	padding: 0 1rem 1rem;
+	padding: 1rem 1rem;
+	
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	
+	-webkit-box-pack: 			end;
+	-moz-box-pack: 				end;
+	-ms-flex-pack: 				end;
+	-webkit-justify-content:    end;
+	justify-content: 			end;
 }
 .fourth {
 	height: 20%;
@@ -479,8 +485,6 @@ footer {
 
 /* media queries */
 @media only screen and (max-width: 1000px) {
-	.flexboxContainer {
-		flex-direction: column;
-	}
+	
 }
 /* end media queries */
