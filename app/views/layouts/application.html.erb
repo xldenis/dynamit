@@ -3,6 +3,8 @@
 
 <head>
 	<title>Dynamit</title>
+	<meta charset="utf-8">
+	<meta lang="en"> 
 	
 	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= stylesheet_link_tag "font-awesome", media: "all", "data-turbolinks-track" => true %>
@@ -10,7 +12,6 @@
 
 	<%= csrf_meta_tags %>
 </head>
-
 
 <body>
 	<header ng-controller="header">
@@ -28,19 +29,21 @@
 			</div>
 			<% end %>
 		</div>
+		
 	<% if !@hide_search_bar %>
 		<div class="row white" id="secondaryBar">
 	
 			<input class="searchTopic" type="text" ng-change="change()" ng-model="searchTerm" placeholder="search for a topic"/>
 		</div>
-	<% end %>
+	<% end %> <!-- end secondaryBar -->
+	
 	</header>
 	
 	<div id="main">
 		<section class="mainContent silver">
 			<%= yield %>
 		</section>
-	</div> <!-- end #body -->
+	</div> <!-- end #main -->
 	
 	<script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
